@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wire_navigation"
+    app:startDestination="@id/wireFragment">
+    <fragment
+        android:id="@+id/wireFragment"
+        android:name="com.example.wire.presentation.fragment.WireFragment"
+        android:label="wire"
+        app:route="wire"
+        tools:layout="@layout/wire_fragment" />
+</navigation>

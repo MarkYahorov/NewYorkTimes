@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/core_navigation"
+    app:startDestination="@id/wire_navigation">
+
+    <include app:graph="@navigation/wire_navigation" />
+    <include app:graph="@navigation/detail_navigation" />
+    <action
+        android:id="@+id/action_detail_flow"
+        app:destination="@id/detail_navigation"
+        app:launchSingleTop="true">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </action>
+
+</navigation>

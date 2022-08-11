@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/core/src/main/res/drawable/border.xml" value="0.1" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/core/src/main/res/drawable/drawable.xml" value="0.1" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/core/src/main/res/layout/empty_content.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/detail/src/main/res/layout/fragment_detail.xml" value="0.1" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/ware/src/main/res/layout/ware_fragment.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/wire/src/main/res/layout/empty_content.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/wire/src/main/res/layout/wire_category.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/wire/src/main/res/layout/wire_category_layout.xml" value="0.5" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/wire/src/main/res/layout/wire_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/wire/src/main/res/layout/wire_image_item.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Mark/AndroidStudioProjects/NewYorkTimes/wire/src/main/res/layout/wire_item.xml" value="0.13333333333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
