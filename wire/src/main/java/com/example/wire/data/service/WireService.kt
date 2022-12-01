@@ -1,7 +1,7 @@
-package com.example.wire.service
+package com.example.wire.data.service
 
-import com.example.wire.presentation.data.response.category.WireSectionDto
-import com.example.wire.presentation.data.response.item.NewsWireDto
+import com.example.wire.data.models.category.WireSectionDto
+import com.example.wire.data.models.item.NewsWireDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 

@@ -1,13 +1,13 @@
-package com.example.wire.databasesource.mapper
+package com.example.wire.data.databasesource.mapper
 
 import com.example.core.mapper.SingleMapper
 import com.example.database.data.WireDetailDto
-import com.example.wire.presentation.data.presentation.WireItem
+import com.example.wire.domain.models.DomainWireItem
 import javax.inject.Inject
 
-class WireDataBaseMapper @Inject constructor() : SingleMapper<WireItem, WireDetailDto> {
+class WireDataBaseMapper @Inject constructor() : SingleMapper<DomainWireItem, WireDetailDto> {
 
-    override fun map(input: WireItem): WireDetailDto {
+    override fun map(input: DomainWireItem): WireDetailDto {
         return with(input) {
             WireDetailDto(
                 id = id,

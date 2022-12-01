@@ -1,4 +1,4 @@
-package com.example.wire.presentation.data.response.category
+package com.example.wire.data.models.category
 
 import com.google.gson.annotations.SerializedName
 

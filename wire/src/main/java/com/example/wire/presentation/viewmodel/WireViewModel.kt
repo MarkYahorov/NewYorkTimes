@@ -1,17 +1,20 @@
 package com.example.wire.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
+import com.example.core.mapper.SingleMapper
 import com.example.core.navigation.AppNavigator
 import com.example.core.viewmodel.BaseViewModel
-import com.example.wire.databasesource.WireDataBaseSource
+import com.example.wire.domain.models.DomainCategory
+import com.example.wire.domain.models.DomainWireItem
 import com.example.wire.presentation.data.presentation.WireCategory
 import com.example.wire.presentation.data.presentation.WireItem
 import com.example.wire.presentation.data.presentation.WireSource
 import com.example.wire.presentation.navigation.WireCoordinator
-import com.example.wire.repository.WireRepository
+import com.example.wire.domain.usecase.WireUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 private const val ALL_SECTION_ITEM = "all"
@@ -19,8 +22,9 @@ private const val ALL_SECTION_NAME = "All"
 private const val FIRST_ITEM_INDEX = 0
 
 class WireViewModel(
-    private val repository: WireRepository,
-    private val dataBaseSource: WireDataBaseSource,
+    private val wireUseCase: WireUseCase,
+    private val categoryMapper: SingleMapper<List<DomainCategory>, List<WireCategory>>,
+    private val contentMapper: SingleMapper<List<DomainWireItem>, List<WireItem>>,
     private val appNavigator: AppNavigator
 ) : BaseViewModel<WireCoordinator>() {
 
@@ -33,7 +37,8 @@ class WireViewModel(
 
     fun getWireCategories() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getWireCategories()
+            wireUseCase.getCategories()
+                .map { categoryMapper.map(it) }
                 .catch { error.emit(it) }
                 .collect {
                     if (it.isEmpty()) {
@@ -54,7 +59,8 @@ class WireViewModel(
 
     private fun getWireContent() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getWireContent(sourceItem.requestName, selectedSection)
+            wireUseCase.getContentList(sourceItem.requestName, selectedSection)
+                .map { contentMapper.map(it) }
                 .catch {
                     error.emit(it)
                 }
@@ -105,9 +111,22 @@ class WireViewModel(
     fun onItemClicked(id: String) {
         viewModelScope.launch(Dispatchers.IO) {
             contentList.value.find { it.id == id }?.let {
-                dataBaseSource.updateWire(it)
+                wireUseCase.updateWire(createDomainModel(it))
             }
         }
         appNavigator.onDetailScreen(id)
+    }
+
+    private fun createDomainModel(wireItem: WireItem): DomainWireItem {
+        return with(wireItem) {
+            DomainWireItem(
+                id = id,
+                title = title,
+                shortDescription = shortDescription,
+                previewImage = previewImage,
+                mediaList = mediaList,
+                section = section
+            )
+        }
     }
 }
