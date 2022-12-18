@@ -13,5 +13,6 @@ private const val DATA_BASE_VERSION = 1
 abstract class NYDatabase : RoomDatabase() {
 
     abstract fun getWireDao(): WireDao
+
     abstract fun getDetailDao(): DetailDao
 }

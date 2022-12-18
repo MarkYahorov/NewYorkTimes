@@ -37,8 +37,8 @@ class WireContentAdapter(
 class WireContentViewHolder(
     private val binding: WireItemBinding,
     private val glide: RequestManager
-) :
-    RecyclerView.ViewHolder(binding.root) {
+) : RecyclerView.ViewHolder(binding.root) {
+
     fun bind(wireItem: WireItem) {
         with(binding) {
             wireItemTitle.text = wireItem.title

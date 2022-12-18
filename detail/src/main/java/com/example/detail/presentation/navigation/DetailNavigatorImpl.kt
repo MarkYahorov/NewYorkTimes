@@ -1,4 +1,4 @@
-package com.example.detail.navigation
+package com.example.detail.presentation.navigation
 
 class DetailNavigatorImpl: DetailNavigator {
     override fun popBackStack() {

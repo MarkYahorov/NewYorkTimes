@@ -1,4 +1,4 @@
-package com.example.detail.navigation
+package com.example.detail.presentation.navigation
 
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.example.detail.data
+package com.example.detail.presentation.data
 
 data class WireDetail(
     val section: String = "",

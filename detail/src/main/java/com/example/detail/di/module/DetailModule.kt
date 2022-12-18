@@ -7,11 +7,13 @@ import com.example.database.daoprovider.DaoProvider
 import com.example.database.data.ImageDto
 import com.example.database.data.WireDetailDto
 import com.example.database.databasetable.DetailDao
-import com.example.detail.data.WireDetail
-import com.example.detail.databasesource.DetailDataBaseSource
-import com.example.detail.databasesource.DetailDataBaseSourceImpl
-import com.example.detail.databasesource.mapper.WireDetailMapper
+import com.example.detail.presentation.data.WireDetail
+import com.example.detail.domain.DetailDataBaseSource
+import com.example.detail.data.databasesource.DetailDataBaseSourceImpl
+import com.example.detail.data.databasesource.mapper.WireDetailMapper
 import com.example.detail.di.DetailScope
+import com.example.detail.domain.models.DomainWireItem
+import com.example.detail.presentation.mapper.WirePresentationDetailMapper
 import com.example.detail.presentation.viewmodel.DetailViewModelFactory
 import dagger.Binds
 import dagger.Module
@@ -30,7 +32,7 @@ interface DetailModule {
 
     @DetailScope
     @Binds
-    fun bindsDetailMapper(mapper: WireDetailMapper): TwiceMapper<WireDetailDto, List<ImageDto>, WireDetail>
+    fun bindsDetailMapper(mapper: WireDetailMapper): TwiceMapper<WireDetailDto, List<ImageDto>, DomainWireItem>
 
     @DetailScope
     @Binds
@@ -39,4 +41,8 @@ interface DetailModule {
     @DetailScope
     @Binds
     fun bindDataBaseSource(dataBaseSourceImpl: DetailDataBaseSourceImpl): DetailDataBaseSource
+
+    @DetailScope
+    @Binds
+    fun bindsDetailPresentationMapper(mapper: WirePresentationDetailMapper): SingleMapper<DomainWireItem, WireDetail>
 }

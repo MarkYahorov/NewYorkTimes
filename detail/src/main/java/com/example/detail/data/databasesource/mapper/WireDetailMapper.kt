@@ -1,22 +1,22 @@
-package com.example.detail.databasesource.mapper
+package com.example.detail.data.databasesource.mapper
 
 import com.example.core.mapper.TwiceMapper
 import com.example.database.data.ImageDto
 import com.example.database.data.WireDetailDto
-import com.example.detail.data.WireDetail
+import com.example.detail.domain.models.DomainWireItem
 import javax.inject.Inject
 
 class WireDetailMapper @Inject constructor() :
-    TwiceMapper<WireDetailDto, List<@JvmSuppressWildcards ImageDto>, WireDetail> {
+    TwiceMapper<WireDetailDto, List<@JvmSuppressWildcards ImageDto>, DomainWireItem> {
 
-    override fun map(firstInput: WireDetailDto, secondInput: List<ImageDto>): WireDetail {
+    override fun map(firstInput: WireDetailDto, secondInput: List<ImageDto>): DomainWireItem {
         return with(firstInput) {
-            WireDetail(
+            DomainWireItem(
                 section = section,
                 title = title,
                 shortDescription = shortDescription,
                 previewImage = previewImage,
-                getImagesUrl(secondInput)
+                mediaList = getImagesUrl(secondInput),
             )
         }
     }
